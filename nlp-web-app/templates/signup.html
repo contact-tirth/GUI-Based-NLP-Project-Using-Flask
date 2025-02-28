@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - NLP Web App</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #141E30, #243B55);
+            color: white;
+            text-align: center;
+            padding: 50px;
+        }
+
+        /* Sign-Up Container */
+        .signup-container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 12px;
+            display: inline-block;
+            box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(15px);
+            width: 340px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            font-size: 26px;
+        }
+
+        /* Input Fields */
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            outline: none;
+            text-align: center;
+        }
+
+        input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Buttons */
+        .btn {
+            width: 100%;
+            padding: 12px;
+            margin-top: 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-signup {
+            background: #00c6ff;
+            color: white;
+        }
+
+        .btn-signup:hover {
+            background: #0091cc;
+        }
+
+        .btn-login {
+            background: #f12711;
+            color: white;
+        }
+
+        .btn-login:hover {
+            background: #d10c05;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .signup-container {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="signup-container">
+        <h2>Create Your Account</h2>
+        {% if message %}
+            <p style="color:red"> {{message}} </p>
+        {% endif %}
+        <form action="/perform_registration" method="post">
+            <input type="text" name="name" placeholder="Enter Your Name" required>
+            <input type="email" name="email" placeholder="Enter Your Email" required>
+            <input type="password" name="password" placeholder="Create Password" required>
+            <button type="submit" class="btn btn-signup">Sign Up</button>
+        </form>
+        <p>Already have an account?</p>
+        <a href="/">
+            <button class="btn btn-login">Go to Login</button>
+        </a>
+    </div>
+
+</body>
+</html>

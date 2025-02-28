@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NLP Web App</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+            color: white;
+            text-align: center;
+            padding: 50px;
+        }
+
+        /* Login Container */
+        .login-container {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 40px;
+            border-radius: 12px;
+            display: inline-block;
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            width: 320px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        /* Input Fields */
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            outline: none;
+            text-align: center;
+        }
+
+        input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Buttons */
+        .btn {
+            width: 100%;
+            padding: 12px;
+            margin-top: 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-login {
+            background: #ff7e5f;
+            color: white;
+        }
+
+        .btn-login:hover {
+            background: #ff6b50;
+        }
+
+        .btn-signup {
+            background: #4facfe;
+            color: white;
+        }
+
+        .btn-signup:hover {
+            background: #3e92e5;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .login-container {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>Login To NLP Web App</h2>
+
+        {% if message %}
+        <p style="color:red"> {{message}} </p>
+        {% endif %}
+
+        <form action="/login_page" method="post">
+            <input type="text" name="email_1" placeholder="Enter Login ID" required>
+            <input type="password" name="password_1" placeholder="Enter Password" required>
+
+            <button type="submit" class="btn btn-login">Login</button>
+
+            <a href="/register">
+                <button type="button" class="btn btn-signup">Sign Up</button>
+            </a>
+        </form>
+    </div>
+
+</body>
+</html>
